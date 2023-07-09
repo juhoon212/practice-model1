@@ -11,18 +11,10 @@
   		Member findMember = MemberDAO.getMemberDAO().findById(id);
   		
   		
-  		// 성 로직
   		if(findMember == null) {
   			out.print("ok");
   		} else {
   			out.print("x");
   		}
-  		
-  		response.sendRedirect(request.getContextPath() + "/web/joinForm.jsp");
-  		
-  		
-  		
-  		
-  		
-  		
   	%>
+

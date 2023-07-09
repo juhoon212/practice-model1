@@ -47,19 +47,19 @@ public class MemberDAO extends JdbcDAO{
 		return rows;
 	}
 	
-	public Member login(String id, String password) throws SQLException{
+	public Member login(String id, String password){
 		
 		
 		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+		Member member = null;
 		
 		
 		try {
 			
-			String sql = "select * from member where id = ? , password = ?";
+			String sql = "select * from member where id = ? and password = ?";
 			
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -69,7 +69,6 @@ public class MemberDAO extends JdbcDAO{
 			
 			rs = pstmt.executeQuery();
 			
-			Member member = null;
 			
 			if(rs.next()) {
 				member = new Member();
@@ -79,13 +78,12 @@ public class MemberDAO extends JdbcDAO{
 				member.setName(rs.getString("name"));
 			}
 			
-			return member;
 		}catch(SQLException e) {
 			System.out.println("db errror = " + e.getMessage());
-			throw e;
 		}finally {
 			close(conn, pstmt, null);
 		}
+		return member;
 	}
 	
 	public Member findById(String id) throws SQLException{

@@ -2,6 +2,10 @@ package dto;
 
 public class Member {
 	
+	/**
+	 * 컬럼 :id , password, name
+	 */
+	
 	
 	private String id;
 	private String password;
