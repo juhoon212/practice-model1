@@ -10,11 +10,11 @@
   	
   		Member findMember = MemberDAO.getMemberDAO().findById(id);
   		
-  		
+  		// ajax로 응답
   		if(findMember == null) {
-  			out.print("ok");
+  			out.print("ok"); 
   		} else {
-  			out.print("x");
+  			out.print("x"); 
   		}
   	%>
 
